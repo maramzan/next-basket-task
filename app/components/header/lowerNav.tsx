@@ -59,17 +59,17 @@ function LowerNav() {
                 <Typography sx={classes.loginText}>Login / Register</Typography>
               </Box>
               <IconButton color="primary" sx={classes.searchIcon}>
-                <SearchOutlinedIcon fontSize="medium" />
+                <SearchOutlinedIcon fontSize="small" />
               </IconButton>
               <IconButton color="primary" sx={classes.cartIcon}>
-                <AddShoppingCartOutlinedIcon fontSize="medium" />
+                <AddShoppingCartOutlinedIcon fontSize="small" />
                 {1}
               </IconButton>
               <IconButton onClick={handleOpenNavMenu} sx={classes.menuIcon}>
                 <MenuIcon fontSize="medium" />
               </IconButton>
               <IconButton sx={classes.favoriteIcon}>
-                <FavoriteBorderOutlinedIcon fontSize="medium" />
+                <FavoriteBorderOutlinedIcon fontSize="small" />
                 {1}
               </IconButton>
             </Box>
@@ -95,6 +95,7 @@ export default LowerNav;
 const classes = {
   root: {
     backgroundColor: theme.palette.background.default,
+    boxShadow: "none",
   },
   logoText: {
     flexGrow: { xs: 1, md: 0 },

@@ -14,22 +14,22 @@ const UpperNav = () => {
       <Container sx={classes.container} maxWidth="xl">
         <Box sx={classes.contactContainer}>
           <Box sx={classes.numberContainer}>
-            <LocalPhoneOutlinedIcon fontSize="small" />
+            <LocalPhoneOutlinedIcon fontSize="small" sx={{ mr: 1 }} />
             <Typography sx={classes.fontBold}>{`(225) 555-0118`}</Typography>
           </Box>
           <Box sx={{ display: "flex" }}>
-            <EmailOutlinedIcon />{" "}
+            <EmailOutlinedIcon sx={{ mr: 1 }} />
             <Typography sx={classes.fontBold}>
               {`michelle.rivera@example.com`}
             </Typography>
           </Box>
         </Box>
         <Typography sx={classes.followText}>
-          Follow us and get a change to win 80% off
+          {` Follow us and get a change to win 80% off`}
         </Typography>
         <Box sx={classes.socialContainer}>
           <Typography sx={{ ...classes.fontBold, mr: 1 }}>
-            Follow Us :
+            {`Follow Us :`}
           </Typography>
           <InstagramIcon fontSize="small" sx={classes.socialIcon} />
           <YouTubeIcon fontSize="small" sx={classes.socialIcon} />
@@ -45,6 +45,7 @@ export default UpperNav;
 
 const classes = {
   root: {
+    color: theme.palette.common.white,
     backgroundColor: theme.palette.secondary.main,
     padding: "15px 0",
     display: {
