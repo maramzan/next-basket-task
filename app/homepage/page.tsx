@@ -6,6 +6,7 @@ import Footer from "../components/footer";
 import Hero from "./components/hero";
 import { Box, Container } from "@mui/material";
 import BestService from "./components/bestService";
+import FeaturedPosts from "./components/featuredPosts";
 
 const HomePage = () => {
   return (
@@ -16,6 +17,7 @@ const HomePage = () => {
           <Container>
             {/* <Hero /> */}
             <BestService />
+            <FeaturedPosts />
           </Container>
         </Box>
       </main>
