@@ -1,11 +1,43 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import React from "react";
+import PostCard from "./postCard";
 
 const FeaturedPosts = () => {
   return (
-    <Box>
-      <Typography color="primary">Practice Advice</Typography>
-      <Typography>Featured Posts</Typography>
+    <Box mt={10}>
+      <Typography
+        color="primary"
+        variant="body2"
+        fontWeight="bold"
+        textAlign="center"
+      >
+        Practice Advice
+      </Typography>
+      <Typography
+        textAlign={"center"}
+        fontWeight="bold"
+        sx={{ fontSize: "40px" }}
+      >
+        Featured Posts
+      </Typography>
+      <Grid container mt={8} spacing={2}>
+        {postsData.map((post, index) => (
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={4}
+            key={index}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <PostCard post={post} />
+          </Grid>
+        ))}
+      </Grid>
     </Box>
   );
 };

@@ -1,5 +1,5 @@
 import { colors } from "@/utils/colors";
-import { Typography, Box } from "@mui/material";
+import { Typography, Box, Grid } from "@mui/material";
 import Image from "next/image";
 import React from "react";
 
@@ -36,9 +36,9 @@ const BestService = () => {
           Problems trying to resolve the conflict between{" "}
         </Typography>
       </Box>
-      <Box sx={classes.iconsContainer}>
+      <Grid container sx={classes.iconsContainer}>
         {bestServiceData.map((service, index) => (
-          <Box sx={classes.iconBox}>
+          <Grid item xs={12} sm={4} sx={classes.iconBox}>
             <Image src={service?.icon} alt="icon" width={72} height={72} />
             <Typography variant="h5" fontWeight="bold" sx={{ mt: 2 }}>
               {service?.title}
@@ -50,9 +50,9 @@ const BestService = () => {
             >
               {service?.description}
             </Typography>
-          </Box>
+          </Grid>
         ))}
-      </Box>
+      </Grid>
     </Box>
   );
 };
@@ -79,7 +79,7 @@ const classes = {
   },
   iconsContainer: {
     display: "flex",
-    justifyContent: "space-between",
+    justifyContent: { sm: "space-between", xs: "center" },
     mt: 10,
     alignItems: "center",
   },

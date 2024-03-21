@@ -7,6 +7,7 @@ import Hero from "./components/hero";
 import { Box, Container } from "@mui/material";
 import BestService from "./components/bestService";
 import FeaturedPosts from "./components/featuredPosts";
+import RatingSection from "./components/ratingSection";
 
 const HomePage = () => {
   return (
@@ -18,6 +19,7 @@ const HomePage = () => {
             {/* <Hero /> */}
             <BestService />
             <FeaturedPosts />
+            <RatingSection />
           </Container>
         </Box>
       </main>
