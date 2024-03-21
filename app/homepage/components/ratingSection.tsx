@@ -57,7 +57,7 @@ const classes = {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding: "0 20px",
+    padding: { xs: "0 20px", sm: "0 60px", md: "0 80px" },
   },
   avatar: { height: "90px", width: "90px", mt: "30px" },
   rightSection: {
