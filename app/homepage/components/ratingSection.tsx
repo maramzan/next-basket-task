@@ -39,7 +39,7 @@ const RatingSection = () => {
       <Grid item xs={12} sm={6} sx={classes.rightSection}>
         <Grid container spacing={1} sx={{ maxWidth: "460px" }}>
           {Array.from({ length: 9 }).map((_, index) => (
-            <Grid item xs={4}>
+            <Grid item xs={4} key={index}>
               <Card sx={{ display: "block", width: "100%" }}>
                 <CardMedia
                   component="img"

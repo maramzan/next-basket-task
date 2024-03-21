@@ -11,7 +11,7 @@ const BestService = () => {
       <FeaturedProductsText />
       <Grid container sx={classes.iconsContainer}>
         {bestServiceData.map((service, index) => (
-          <Grid item xs={12} sm={4} sx={classes.iconBox}>
+          <Grid key={index} item xs={12} sm={4} sx={classes.iconBox}>
             <Image src={service?.icon} alt="icon" width={72} height={72} />
             <Typography variant="h5" fontWeight="bold" sx={{ mt: 2 }}>
               {service?.title}
