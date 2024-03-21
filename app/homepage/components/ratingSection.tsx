@@ -31,7 +31,7 @@ const RatingSection = () => {
       </Grid>
 
       <Grid item xs={12} sm={6} sx={classes.rightSection}>
-        <Grid container spacing={1}>
+        <Grid container spacing={1} sx={{ maxWidth: "460px" }}>
           {Array.from({ length: 9 }).map((_, index) => (
             <Grid item xs={4}>
               <Card sx={{ display: "block", width: "100%" }}>

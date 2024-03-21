@@ -1,7 +1,5 @@
 import React from "react";
 import Header from "../components/header";
-
-// import ProductsList from "../components/ProductsList";
 import Footer from "../components/footer";
 import Hero from "./components/hero";
 import { Box, Container } from "@mui/material";
@@ -16,7 +14,7 @@ const HomePage = () => {
       <main>
         <Box sx={{ bgcolor: "white" }}>
           <Container>
-            {/* <Hero /> */}
+            <Hero />
             <BestService />
             <FeaturedPosts />
             <RatingSection />
