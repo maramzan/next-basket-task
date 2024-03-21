@@ -13,11 +13,7 @@ const FeaturedPosts = () => {
       >
         Practice Advice
       </Typography>
-      <Typography
-        textAlign={"center"}
-        fontWeight="bold"
-        sx={{ fontSize: "40px" }}
-      >
+      <Typography textAlign={"center"} fontWeight="bold" fontSize={40}>
         Featured Posts
       </Typography>
       <Grid container mt={8} spacing={2}>

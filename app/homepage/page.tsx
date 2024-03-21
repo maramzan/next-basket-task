@@ -6,6 +6,8 @@ import { Box, Container } from "@mui/material";
 import BestService from "./components/bestService";
 import FeaturedPosts from "./components/featuredPosts";
 import RatingSection from "./components/ratingSection";
+import CTASection from "./components/ctaSection";
+import SocialSection from "./components/socialSection";
 
 const HomePage = () => {
   return (
@@ -19,9 +21,13 @@ const HomePage = () => {
             <FeaturedPosts />
             <RatingSection />
           </Container>
+          <CTASection />
+          <Container>
+            <SocialSection />
+          </Container>
         </Box>
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
