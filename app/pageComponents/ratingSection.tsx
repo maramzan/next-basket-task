@@ -16,7 +16,11 @@ const RatingSection = () => {
         <Typography variant="h5" fontWeight="bold" textAlign="center">
           What they say about us
         </Typography>
-        <Avatar src="/assets/png/rating-avatar.png" sx={classes.avatar} />
+        <Avatar
+          src="/assets/png/rating-avatar.png"
+          sx={classes.avatar}
+          alt="reviewer image"
+        />
         <Rating name="simple-controlled" value={4} sx={{ mt: "20px" }} />
         <Typography
           maxWidth={"450px"}

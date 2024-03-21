@@ -58,17 +58,29 @@ function LowerNav() {
                 <PersonOutlineOutlinedIcon color="primary" fontSize="small" />
                 <Typography sx={classes.loginText}>Login / Register</Typography>
               </Box>
-              <IconButton color="primary" sx={classes.searchIcon}>
+              <IconButton
+                aria-label="Search"
+                color="primary"
+                sx={classes.searchIcon}
+              >
                 <SearchOutlinedIcon fontSize="small" />
               </IconButton>
-              <IconButton color="primary" sx={classes.cartIcon}>
+              <IconButton
+                aria-label="Cart"
+                color="primary"
+                sx={classes.cartIcon}
+              >
                 <AddShoppingCartOutlinedIcon fontSize="small" />
                 {1}
               </IconButton>
-              <IconButton onClick={handleOpenNavMenu} sx={classes.menuIcon}>
+              <IconButton
+                aria-label="Menu"
+                onClick={handleOpenNavMenu}
+                sx={classes.menuIcon}
+              >
                 <MenuIcon fontSize="medium" />
               </IconButton>
-              <IconButton sx={classes.favoriteIcon}>
+              <IconButton aria-label="Favorite" sx={classes.favoriteIcon}>
                 <FavoriteBorderOutlinedIcon fontSize="small" />
                 {1}
               </IconButton>
