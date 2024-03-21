@@ -42,8 +42,8 @@ const Footer = () => {
         }}
       >
         <Grid container>
-          {footerLinks.map((link, index) => (
-            <Grid key={index} item xs={12} sm={6} md={2}>
+          {footerLinks.map((link) => (
+            <Grid key={link?.title} item xs={12} sm={6} md={2}>
               <Typography variant="body1" fontWeight="bold" mt={4}>
                 {link?.title}
               </Typography>
