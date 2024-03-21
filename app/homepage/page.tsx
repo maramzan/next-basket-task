@@ -22,9 +22,7 @@ const HomePage = () => {
             <RatingSection />
           </Container>
           <CTASection />
-          <Container>
-            <SocialSection />
-          </Container>
+          <SocialSection />
         </Box>
       </main>
       <Footer />

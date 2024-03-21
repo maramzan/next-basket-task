@@ -18,7 +18,13 @@ const RatingSection = () => {
         </Typography>
         <Avatar src="/assets/png/rating-avatar.png" sx={classes.avatar} />
         <Rating name="simple-controlled" value={4} sx={{ mt: "20px" }} />
-        <Typography variant="body2" fontWeight="bold" textAlign="center" mt={3}>
+        <Typography
+          maxWidth={"450px"}
+          variant="body2"
+          fontWeight="bold"
+          textAlign="center"
+          mt={3}
+        >
           Slate helps you see how many more days you need to work to reach your
           financial goal.
         </Typography>
@@ -57,7 +63,7 @@ const classes = {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding: { xs: "0 20px", sm: "0 60px", md: "0 80px" },
+    padding: { xs: "0 20px" },
   },
   avatar: { height: "90px", width: "90px", mt: "30px" },
   rightSection: {

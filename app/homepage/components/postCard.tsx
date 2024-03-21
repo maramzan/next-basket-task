@@ -52,11 +52,16 @@ const PostCard = ({ post }: { post: postProps }) => {
         </Typography>
         <Box sx={{ display: "flex", justifyContent: "space-between", mt: 2 }}>
           <Box sx={classes.dateContainer}>
-            <AccessAlarmsIcon sx={{ mr: 1, fontSize: "16px" }} />
+            <AccessAlarmsIcon
+              color="primary"
+              sx={{ mr: 1, fontSize: "16px" }}
+            />
             <Typography variant="caption">{post.date}</Typography>
           </Box>
           <Box sx={classes.dateContainer}>
-            <BarChartIcon sx={{ mr: 1, fontSize: "16px" }} />
+            <BarChartIcon
+              sx={{ mr: 1, fontSize: "16px", color: colors.green }}
+            />
             <Typography variant="caption">{post.comments}</Typography>
           </Box>
         </Box>
