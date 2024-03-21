@@ -23,7 +23,6 @@ interface postProps {
 const PostCard = ({ post }: { post: postProps }) => {
   return (
     <Card sx={{ maxWidth: 345, position: "relative" }}>
-      {/* <Box sx={classes.imageContainer}> */}
       <Box
         sx={{
           backgroundImage: `url(${post.img})`,

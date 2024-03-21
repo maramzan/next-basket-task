@@ -4,17 +4,7 @@ import { colors } from "@/utils/colors";
 
 const MyGrid = () => {
   return (
-    <Grid
-      container
-      spacing={1}
-      sx={{
-        maxWidth: "1150px",
-        maxHeight: { sm: "650px" },
-        height: "100%",
-        width: "100%",
-        marginTop: "30px",
-      }}
-    >
+    <Grid container spacing={1} sx={classes.root}>
       <Grid item xs={12} sm={5}>
         <Box sx={classes.mainItem}>
           <TextComponent />
@@ -63,9 +53,15 @@ const TextComponent = () => {
 };
 
 const classes = {
+  root: {
+    maxWidth: "1150px",
+    maxHeight: { sm: "650px" },
+    height: "100%",
+    width: "100%",
+    marginTop: "30px",
+  },
   mainItem: {
     height: { xs: "300px", sm: "100%" },
-
     padding: "20px",
     backgroundImage: `url('/assets/png/image-1.png')`,
     backgroundSize: "cover",

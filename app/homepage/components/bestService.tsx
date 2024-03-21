@@ -1,41 +1,14 @@
+import FeaturedProductsText from "@/app/components/featuredProductsText";
+import { bestServiceData } from "@/constants";
 import { colors } from "@/utils/colors";
 import { Typography, Box, Grid } from "@mui/material";
 import Image from "next/image";
 import React from "react";
 
-const bestServiceData = [
-  {
-    icon: "/assets/png/easy-win.png",
-    title: "Easy Wins",
-    description: "Get your best looking smile now",
-  },
-  {
-    icon: "/assets/png/concrete.png",
-    title: "Concrete",
-    description:
-      "Defalcate is most focused in helping you discover your most beautiful smile",
-  },
-  {
-    icon: "/assets/png/growth.png",
-    title: "Hack Growth",
-    description: "Overcame any hurdle or any other problem.",
-  },
-];
-
 const BestService = () => {
   return (
     <Box sx={classes.root}>
-      <Box sx={classes.textContainer}>
-        <Typography variant="h6" sx={classes.featText}>
-          Featured Products
-        </Typography>
-        <Typography variant="h5" fontWeight="bold" sx={classes.serviceText}>
-          THE BEST SERVICES{" "}
-        </Typography>
-        <Typography variant="body1" sx={classes.problemText}>
-          Problems trying to resolve the conflict between{" "}
-        </Typography>
-      </Box>
+      <FeaturedProductsText />
       <Grid container sx={classes.iconsContainer}>
         {bestServiceData.map((service, index) => (
           <Grid item xs={12} sm={4} sx={classes.iconBox}>
@@ -62,20 +35,6 @@ export default BestService;
 const classes = {
   root: {
     mt: 5,
-  },
-  textContainer: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-  featText: {
-    color: colors.textLight,
-  },
-  serviceText: {
-    color: colors.textPrimary,
-  },
-  problemText: {
-    color: colors.textLight,
   },
   iconsContainer: {
     display: "flex",
