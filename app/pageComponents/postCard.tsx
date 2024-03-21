@@ -46,7 +46,7 @@ const PostCard = ({ post }: { post: postProps }) => {
         <Typography gutterBottom variant="h6" component="div">
           {post?.title}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="body2" color="text.disabled">
           {post?.description}
         </Typography>
         <Box sx={{ display: "flex", justifyContent: "space-between", mt: 2 }}>

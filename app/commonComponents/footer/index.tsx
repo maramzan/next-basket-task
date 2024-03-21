@@ -1,3 +1,4 @@
+import { footerLinks } from "@/constants";
 import { colors } from "@/utils/colors";
 import {
   Box,
@@ -9,30 +10,6 @@ import {
 } from "@mui/material";
 import React from "react";
 
-const footerLinks = [
-  {
-    title: "Company Info",
-    links: ["About Us", "Carrier", "We are hiring", "Blog"],
-  },
-  {
-    title: "Legal",
-    links: ["About Us", "Carrier", "We are hiring", "Blog"],
-  },
-  {
-    title: "Features",
-    links: [
-      "Business Marketing",
-      "User Analytic",
-      "Live Chat",
-      "Unlimited Support",
-    ],
-  },
-  {
-    title: "Resources",
-    links: ["IOS & Android", "Watch a Demo", "Customers", "API"],
-  },
-];
-
 const Footer = () => {
   return (
     <>
@@ -42,7 +19,7 @@ const Footer = () => {
         }}
       >
         <Grid container>
-          {footerLinks.map((link) => (
+          {footerLinks?.map((link) => (
             <Grid key={link?.title} item xs={12} sm={6} md={2}>
               <Typography variant="body1" fontWeight="bold" mt={4}>
                 {link?.title}
@@ -78,6 +55,7 @@ const Footer = () => {
                 sx={{
                   borderTopLeftRadius: 0,
                   borderBottomLeftRadius: 0,
+                  color: "white",
                 }}
                 variant="contained"
               >

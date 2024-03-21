@@ -1,4 +1,4 @@
-import FeaturedProductsText from "@/app/components/featuredProductsText";
+import FeaturedProductsText from "@/app/commonComponents/featuredProductsText";
 import { bestServiceData } from "@/constants";
 import { colors } from "@/utils/colors";
 import { Typography, Box, Grid } from "@mui/material";
@@ -34,7 +34,7 @@ export default BestService;
 
 const classes = {
   root: {
-    mt: 5,
+    mt: 15,
   },
   iconsContainer: {
     display: "flex",

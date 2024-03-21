@@ -37,7 +37,7 @@ const CTASection = () => {
         $16.48
       </Typography>
       <Button
-        sx={{ mt: 3, fontSize: "14px", fontWeight: "bold" }}
+        sx={{ mt: 3, fontSize: "14px", fontWeight: "bold", color: "white" }}
         variant="contained"
       >
         Add your call to action
