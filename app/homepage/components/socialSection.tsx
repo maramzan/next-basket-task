@@ -27,6 +27,7 @@ const classes = {
     flexDirection: { xs: "column", sm: "row" },
     justifyContent: "space-between",
     padding: 4,
+    borderBottom: "1px solid #E6E6E6",
   },
   iconsContainer: {
     margin: { xs: "1rem 0", sm: "0" },

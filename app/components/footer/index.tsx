@@ -89,6 +89,18 @@ const Footer = () => {
           </Grid>
         </Grid>
       </Container>
+      <Box sx={{ backgroundColor: "#FAFAFA" }}>
+        <Container>
+          <Typography
+            py={3}
+            variant="body2"
+            fontWeight="bold"
+            color={colors.textLight}
+          >
+            Made With Love By Finland All Right Reserved
+          </Typography>
+        </Container>
+      </Box>
     </>
   );
 };
