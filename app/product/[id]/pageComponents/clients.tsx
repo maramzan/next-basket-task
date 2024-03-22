@@ -7,6 +7,7 @@ const ClientsSection = () => {
   return (
     <Box
       sx={{
+        p: 5,
         backgroundColor: "#fafafa",
       }}
     >

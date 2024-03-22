@@ -9,6 +9,7 @@ import axios from "axios";
 import ProductDetails from "./pageComponents/productDetails";
 import BreadCrumbs from "./pageComponents/bradCrumb";
 import TabsSection from "./pageComponents/tabsSection";
+import BestSeller from "./pageComponents/bestSeller";
 
 const Product = async ({ params }: { params: { id: number } }) => {
   const product = await getProjects(params.id);
@@ -24,7 +25,9 @@ const Product = async ({ params }: { params: { id: number } }) => {
           </Container>
         </Box>
         <TabsSection />
+        <BestSeller />
         <ClientsSection />
+
         <SocialSection bgColor="white" />
       </main>
       <Footer />

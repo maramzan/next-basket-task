@@ -1,3 +1,8 @@
+import bestSeller1 from "@/public/assets/png/bestSeller1.png";
+import bestSeller2 from "@/public/assets/png/bestSeller2.png";
+import bestSeller3 from "@/public/assets/png/bestSeller3.png";
+import bestSeller4 from "@/public/assets/png/bestSeller4.png";
+
 export const bestServiceData = [
   {
     icon: "/assets/png/easy-win.png",
@@ -74,3 +79,70 @@ export const footerLinks = [
 export const imageWidth = [103, 83, 102, 103, 104, 76];
 
 export const availableColors = ["#23A6F0", "#2DC071", "#E77C40", "#252B42"];
+
+export const bestSellerData = [
+  {
+    id: 1,
+    thumbnail: "https://cdn.dummyjson.com/product-images/31/thumbnail.jpg",
+    title: "Best Seller",
+    brand: "Apple",
+    price: 1200,
+    discountPercentage: 20,
+  },
+  {
+    id: 2,
+    thumbnail: "https://cdn.dummyjson.com/product-images/32/thumbnail.jpg",
+    title: "Best Seller",
+    brand: "Apple",
+    price: 1200,
+    discountPercentage: 20,
+  },
+  {
+    id: 3,
+    thumbnail: "https://cdn.dummyjson.com/product-images/33/thumbnail.jpg",
+    title: "Best Seller",
+    brand: "Apple",
+    price: 1200,
+    discountPercentage: 20,
+  },
+  {
+    id: 4,
+    thumbnail: "https://cdn.dummyjson.com/product-images/34/thumbnail.jpg",
+    title: "Best Seller",
+    brand: "Apple",
+    price: 1200,
+    discountPercentage: 20,
+  },
+  {
+    id: 5,
+    thumbnail: "https://cdn.dummyjson.com/product-images/99/thumbnail.jpg",
+    title: "Best Seller",
+    brand: "Apple",
+    price: 1200,
+    discountPercentage: 20,
+  },
+  {
+    id: 6,
+    thumbnail: "https://cdn.dummyjson.com/product-images/100/thumbnail.jpg",
+    title: "Best Seller",
+    brand: "Apple",
+    price: 1200,
+    discountPercentage: 20,
+  },
+  {
+    id: 7,
+    thumbnail: "https://cdn.dummyjson.com/product-images/96/thumbnail.jpg",
+    title: "Best Seller",
+    brand: "Apple",
+    price: 1200,
+    discountPercentage: 20,
+  },
+  {
+    id: 8,
+    thumbnail: "https://cdn.dummyjson.com/product-images/98/thumbnail.jpg",
+    title: "Best Seller",
+    brand: "Apple",
+    price: 1200,
+    discountPercentage: 20,
+  },
+];
