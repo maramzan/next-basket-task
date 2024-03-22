@@ -22,9 +22,9 @@ const theme = createTheme({
       default: "#fff",
     },
   },
-  typography: {
-    fontFamily: "Montserrat, sans-serif",
-  },
+  // typography: {
+  //   fontFamily: "Montserrat, sans-serif",
+  // },
 });
 
 export default theme;
