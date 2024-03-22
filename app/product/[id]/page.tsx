@@ -6,11 +6,10 @@ import { Box, Container } from "@mui/material";
 import React from "react";
 import ClientsSection from "./pageComponents/clients";
 import axios from "axios";
+import ProductDetails from "./pageComponents/productDetails";
 
 const Product = async ({ params }: { params: { id: number } }) => {
   const product = await getProjects(params.id);
-
-  console.log("single product:", product);
 
   return (
     <div>
@@ -18,6 +17,7 @@ const Product = async ({ params }: { params: { id: number } }) => {
       <main>
         <Box sx={{ bgcolor: "white" }}>
           <Container>
+            <ProductDetails product={product} />
             <ClientsSection />
           </Container>
           <SocialSection />

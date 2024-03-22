@@ -21,7 +21,12 @@ const RatingSection = () => {
           sx={classes.avatar}
           alt="reviewer image"
         />
-        <Rating name="simple-controlled" value={4} sx={{ mt: "20px" }} />
+        <Rating
+          name="simple-controlled"
+          readOnly
+          value={4}
+          sx={{ mt: "20px" }}
+        />
         <Typography
           maxWidth={"450px"}
           variant="body2"
