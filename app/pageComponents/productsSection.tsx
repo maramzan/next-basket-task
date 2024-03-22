@@ -50,8 +50,8 @@ const ProductsSection = () => {
           mt: 5,
         }}
       >
-        {products?.map((product) => (
-          <ProductCard product={product} />
+        {products?.map((product, index) => (
+          <ProductCard key={index} product={product} />
         ))}
         {products?.length && hasMore ? (
           <Button

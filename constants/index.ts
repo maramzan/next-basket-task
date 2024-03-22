@@ -72,3 +72,5 @@ export const footerLinks = [
 ];
 
 export const imageWidth = [103, 83, 102, 103, 104, 76];
+
+export const availableColors = ["#23A6F0", "#2DC071", "#E77C40", "#252B42"];
