@@ -19,7 +19,7 @@ const BestSeller = () => {
           }}
         >
           {bestSellerData?.map((product) => (
-            <BestSellerCard product={product} />
+            <BestSellerCard key={product.id} product={product} />
           ))}
         </Box>
       </Container>
