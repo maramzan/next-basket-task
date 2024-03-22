@@ -8,6 +8,7 @@ import ClientsSection from "./pageComponents/clients";
 import axios from "axios";
 import ProductDetails from "./pageComponents/productDetails";
 import BreadCrumbs from "./pageComponents/bradCrumb";
+import TabsSection from "./pageComponents/tabsSection";
 
 const Product = async ({ params }: { params: { id: number } }) => {
   const product = await getProjects(params.id);
@@ -16,16 +17,15 @@ const Product = async ({ params }: { params: { id: number } }) => {
     <div>
       <Header />
       <main>
-        <Box>
-          <Box bgcolor={"#fafafa"}>
-            <Container>
-              <BreadCrumbs />
-              <ProductDetails product={product} />
-              <ClientsSection />
-            </Container>
-          </Box>
-          <SocialSection />
+        <Box bgcolor={"#fafafa"}>
+          <Container>
+            <BreadCrumbs />
+            <ProductDetails product={product} />
+          </Container>
         </Box>
+        <TabsSection />
+        <ClientsSection />
+        <SocialSection bgColor="white" />
       </main>
       <Footer />
     </div>
@@ -35,8 +35,13 @@ const Product = async ({ params }: { params: { id: number } }) => {
 export default Product;
 
 async function getProjects(id: number) {
-  const res = await axios.get(`https://dummyjson.com/products/${id}`);
-  const projects = res.data;
+  try {
+    const res = await axios.get(`https://dummyjson.com/products/${id}`);
+    const projects = res.data;
 
-  return projects;
+    return projects;
+  } catch (error) {
+    console.error("Error fetching projects:", error);
+    return null;
+  }
 }

@@ -1,13 +1,12 @@
-"use client";
 import { Box, Container, Typography } from "@mui/material";
 import React from "react";
 import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
 
-const SocialSection = () => {
+const SocialSection = ({ bgColor }: { bgColor?: string }) => {
   return (
-    <Box sx={{ backgroundColor: "#fafafa" }}>
+    <Box sx={{ backgroundColor: bgColor || "#fafafa" }}>
       <Container sx={classes.root}>
         <Typography variant="h5" fontWeight="bold">
           Bandage
