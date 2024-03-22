@@ -1,33 +1,28 @@
 import { colors } from "@/utils/colors";
+import { CardData } from "@/constants/types";
 import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
+import Link from "next/link";
 import React from "react";
 
-interface CardData {
-  id?: number;
-  title?: string;
-  description?: string;
-  price: number;
-  discountPercentage: number;
-  rating?: number;
-  stock?: number;
-  brand?: string;
-  category?: string;
-  thumbnail?: string;
-  images?: string[];
-}
-
-const ProductCard = ({ product }: { product: any }) => {
+const ProductCard = (props: { product: CardData }) => {
+  const { product } = props;
   return (
     <Card
-      sx={{ width: { xs: "295px", sm: "183px" }, mt: 2 }}
+      sx={{
+        width: { xs: "295px", sm: "183px" },
+        cursor: "pointer",
+        mt: 2,
+      }}
       elevation={0}
       key={product?.id}
     >
-      <CardMedia
-        sx={{ height: { xs: "360px", sm: "238px" } }}
-        image={product?.thumbnail}
-        title={product?.title}
-      />
+      <Link href={`/product/${product?.id}`} key={product.id}>
+        <CardMedia
+          sx={{ height: { xs: "360px", sm: "238px" } }}
+          image={product?.thumbnail}
+          title={product?.title}
+        />
+      </Link>
       <CardContent>
         <Typography variant="body1" fontWeight="bold" textAlign="center">
           {product?.title}

@@ -70,3 +70,5 @@ export const footerLinks = [
     links: ["IOS & Android", "Watch a Demo", "Customers", "API"],
   },
 ];
+
+export const imageWidth = [103, 83, 102, 103, 104, 76];
