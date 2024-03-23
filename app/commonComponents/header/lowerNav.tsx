@@ -15,19 +15,23 @@ import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlin
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import ExpandMoreOutlinedIcon from "@mui/icons-material/ExpandMoreOutlined";
 import { useSelector } from "react-redux";
-
-const pages = ["Home", "Shop", "About", "Blog", "Contact", "Pages"];
-const responsiveMenu = ["Home", "Product", "Pricing", "Account"];
+import { pages, responsiveMenu } from "@/constants";
+import { Button } from "@mui/material";
+import SimpleDialog from "../dialog";
+import { Preview } from "@mui/icons-material";
 
 function LowerNav() {
   const [isClient, setIsClient] = React.useState(false);
+  const [selectedValue, setSelectedValue] = React.useState("email");
+  const [open, setOpen] = React.useState(false);
+  const [cart, setCart] = React.useState(false);
 
   React.useEffect(() => {
     setIsClient(true);
   }, []);
 
-  const cartItems = useSelector((state: any) => state.wishlist.items);
-  console.log("wishlist items", cartItems);
+  const wishlistItems = useSelector((state: any) => state.wishlist.items);
+  const cartItems = useSelector((state: any) => state.cart.items);
 
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
@@ -39,6 +43,11 @@ function LowerNav() {
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
+  };
+
+  const handleClose = (value: string) => {
+    setSelectedValue(value);
+    setOpen(false);
   };
 
   return (
@@ -79,9 +88,13 @@ function LowerNav() {
                 aria-label="Cart"
                 color="primary"
                 sx={classes.cartIcon}
+                onClick={() => {
+                  setCart(true);
+                  setOpen(true);
+                }}
               >
                 <AddShoppingCartOutlinedIcon fontSize="small" />
-                {}
+                {isClient && cartItems.length > 0 && cartItems.length}
               </IconButton>
               <IconButton
                 aria-label="Menu"
@@ -90,9 +103,16 @@ function LowerNav() {
               >
                 <MenuIcon fontSize="medium" />
               </IconButton>
-              <IconButton aria-label="Favorite" sx={classes.favoriteIcon}>
+              <IconButton
+                aria-label="Favorite"
+                onClick={() => {
+                  setCart(false);
+                  setOpen(true);
+                }}
+                sx={classes.favoriteIcon}
+              >
                 <FavoriteBorderOutlinedIcon fontSize="small" />
-                {isClient && cartItems.length > 0 && cartItems.length}
+                {isClient && wishlistItems.length > 0 && wishlistItems.length}
               </IconButton>
             </Box>
           </Toolbar>
@@ -109,6 +129,14 @@ function LowerNav() {
           </Box>
         )}
       </AppBar>
+      <div>
+        <SimpleDialog
+          selectedValue={selectedValue}
+          open={open}
+          onClose={handleClose}
+          cartItems={cart ? cartItems : wishlistItems}
+        />
+      </div>
     </>
   );
 }

@@ -146,3 +146,6 @@ export const bestSellerData = [
     discountPercentage: 20,
   },
 ];
+
+export const pages = ["Home", "Shop", "About", "Blog", "Contact", "Pages"];
+export const responsiveMenu = ["Home", "Product", "Pricing", "Account"];

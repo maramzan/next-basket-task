@@ -1,11 +1,13 @@
 import { ProductData } from "@/constants/types";
 import {
+  Alert,
   Box,
   Button,
   Divider,
   Grid,
   IconButton,
   Rating,
+  Snackbar,
   Typography,
 } from "@mui/material";
 import React from "react";
@@ -16,6 +18,7 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import { availableColors } from "@/constants";
 import Image from "next/image";
 import { addItem as addWishlistItem } from "@/store/slices/wishlistSlice";
+import { addItem as addCartItem } from "@/store/slices/cartSlice";
 import { useDispatch } from "react-redux";
 
 const iconButtonStyles = {
@@ -37,94 +40,129 @@ const IconButtonWithStyle = ({
 );
 
 const ProductDetails = ({ product }: { product: ProductData }) => {
+  const [open, setOpen] = React.useState(false);
+  const [message, setMessage] = React.useState("");
   const dispatch = useDispatch();
+
   const addToFavorites = (product: ProductData) => {
-    // add product to WishlistItems
     dispatch(addWishlistItem(product));
-    // show alert
-    alert("Product added to wishlist");
+    setOpen(true);
+    setMessage("Item added to wishlist");
+  };
+
+  const addToCart = (product: ProductData) => {
+    dispatch(addCartItem(product));
+    setOpen(true);
+    setMessage("Item added to cart");
+  };
+
+  const handleClose = () => {
+    setOpen(false);
   };
 
   return (
-    <Box pb={10}>
-      <Grid container>
-        <Grid xs={12} md={6} item>
-          <Carousel autoPlay={false} indicators={false} navButtonsAlwaysVisible>
-            {product?.images.map((image, i) => (
-              <Item key={i} item={image} />
-            ))}
-          </Carousel>
-          <Box display="flex" mt={2}>
-            {product?.images.map((image, index) => (
-              <Box key={index}>
-                <Image
-                  style={{ marginLeft: "10px" }}
-                  src={image}
-                  width={100}
-                  height={75}
-                  alt="products images"
-                />
-              </Box>
-            ))}
-          </Box>
-        </Grid>
-        <Grid xs={12} md={6} item sx={{ pl: 4, pt: 1 }}>
-          <Typography variant="h6" fontWeight="regular">
-            {product?.title}
-          </Typography>
-          <Box display="flex" alignItems="center" mt={1}>
-            <Rating value={product?.rating} readOnly sx={{ mr: 1 }} />
-            <Typography
-              fontWeight="bold"
-              variant="body2"
-              color="text.secondary"
+    <>
+      <Box pb={10}>
+        <Grid container>
+          <Grid xs={12} md={6} item>
+            <Carousel
+              autoPlay={false}
+              indicators={false}
+              navButtonsAlwaysVisible
             >
-              10 Reviews
+              {product?.images.map((image, i) => (
+                <Item key={i} item={image} />
+              ))}
+            </Carousel>
+            <Box display="flex" mt={2}>
+              {product?.images.map((image, index) => (
+                <Box key={index}>
+                  <Image
+                    style={{ marginLeft: "10px" }}
+                    src={image}
+                    width={100}
+                    height={75}
+                    alt="products images"
+                  />
+                </Box>
+              ))}
+            </Box>
+          </Grid>
+          <Grid xs={12} md={6} item sx={{ pl: 4, pt: 1 }}>
+            <Typography variant="h6" fontWeight="regular">
+              {product?.title}
             </Typography>
-          </Box>
-          <Typography variant="h5" color="text" fontWeight="bold" mt={2}>
-            ${product?.price.toLocaleString("en-US")}
-          </Typography>
-          <Typography mt={1} variant="body2" fontWeight="bold">
-            <Box component="span" color="text.secondary">
-              Availability :{" "}
+            <Box display="flex" alignItems="center" mt={1}>
+              <Rating value={product?.rating} readOnly sx={{ mr: 1 }} />
+              <Typography
+                fontWeight="bold"
+                variant="body2"
+                color="text.secondary"
+              >
+                10 Reviews
+              </Typography>
             </Box>
-            <Box component="span" color="primary.main">
-              In Stock
+            <Typography variant="h5" color="text" fontWeight="bold" mt={2}>
+              ${product?.price.toLocaleString("en-US")}
+            </Typography>
+            <Typography mt={1} variant="body2" fontWeight="bold">
+              <Box component="span" color="text.secondary">
+                Availability :{" "}
+              </Box>
+              <Box component="span" color="primary.main">
+                In Stock
+              </Box>
+            </Typography>
+            <Divider sx={{ mt: 10 }} />
+            <Box display="flex" mt={4}>
+              {availableColors.map((color, i) => (
+                <Box
+                  key={i}
+                  sx={{
+                    height: "30px",
+                    width: "30px",
+                    borderRadius: "15px",
+                    backgroundColor: color,
+                    margin: "0 5px",
+                  }}
+                />
+              ))}
             </Box>
-          </Typography>
-          <Divider sx={{ mt: 10 }} />
-          <Box display="flex" mt={4}>
-            {availableColors.map((color, i) => (
-              <Box
-                key={i}
-                sx={{
-                  height: "30px",
-                  width: "30px",
-                  borderRadius: "15px",
-                  backgroundColor: color,
-                  margin: "0 5px",
-                }}
-              />
-            ))}
-          </Box>
-          <Box mt={6}>
-            <Button variant="contained" sx={{ color: "white" }}>
-              Select Options
-            </Button>
-            <IconButtonWithStyle onClick={() => addToFavorites(product)}>
-              <FavoriteBorderIcon />
-            </IconButtonWithStyle>
-            <IconButtonWithStyle>
-              <AddShoppingCartOutlinedIcon />
-            </IconButtonWithStyle>
-            <IconButtonWithStyle>
-              <VisibilityIcon />
-            </IconButtonWithStyle>
-          </Box>
+            <Box mt={6}>
+              <Button variant="contained" sx={{ color: "white" }}>
+                Select Options
+              </Button>
+              <IconButtonWithStyle onClick={() => addToFavorites(product)}>
+                <FavoriteBorderIcon />
+              </IconButtonWithStyle>
+              <IconButtonWithStyle>
+                <AddShoppingCartOutlinedIcon
+                  onClick={() => addToCart(product)}
+                />
+              </IconButtonWithStyle>
+              <IconButtonWithStyle>
+                <VisibilityIcon />
+              </IconButtonWithStyle>
+            </Box>
+          </Grid>
         </Grid>
-      </Grid>
-    </Box>
+      </Box>
+      <Snackbar
+        anchorOrigin={{ vertical: "top", horizontal: "right" }}
+        open={open}
+        autoHideDuration={3000}
+        onClose={handleClose}
+      >
+        <Alert
+          onClose={handleClose}
+          severity="success"
+          variant="filled"
+          sx={{ width: "100%" }}
+        >
+          {message}
+        </Alert>
+      </Snackbar>
+    </>
   );
 };
 
@@ -138,6 +176,7 @@ function Item({ item }: { item: string }) {
         backgroundColor: "gray",
         backgroundImage: `url(${item})`,
         backgroundSize: "cover",
+        backgroundPosition: "contain",
       }}
     ></Box>
   );
