@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -14,11 +14,21 @@ import theme from "@/utils/theme";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import ExpandMoreOutlinedIcon from "@mui/icons-material/ExpandMoreOutlined";
+import { useSelector } from "react-redux";
 
 const pages = ["Home", "Shop", "About", "Blog", "Contact", "Pages"];
 const responsiveMenu = ["Home", "Product", "Pricing", "Account"];
 
 function LowerNav() {
+  const [isClient, setIsClient] = React.useState(false);
+
+  React.useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  const cartItems = useSelector((state: any) => state.wishlist.items);
+  console.log("wishlist items", cartItems);
+
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -71,7 +81,7 @@ function LowerNav() {
                 sx={classes.cartIcon}
               >
                 <AddShoppingCartOutlinedIcon fontSize="small" />
-                {1}
+                {}
               </IconButton>
               <IconButton
                 aria-label="Menu"
@@ -82,7 +92,7 @@ function LowerNav() {
               </IconButton>
               <IconButton aria-label="Favorite" sx={classes.favoriteIcon}>
                 <FavoriteBorderOutlinedIcon fontSize="small" />
-                {1}
+                {isClient && cartItems.length > 0 && cartItems.length}
               </IconButton>
             </Box>
           </Toolbar>

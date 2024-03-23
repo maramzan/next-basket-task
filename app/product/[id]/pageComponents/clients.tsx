@@ -22,6 +22,7 @@ const ClientsSection = () => {
         {imageWidth.map((width, index) => (
           <Box key={index} mt={5} mx={2}>
             <Image
+              style={{}}
               src={`/assets/png/client${index + 1}.png`}
               alt="client"
               width={width}

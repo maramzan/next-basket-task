@@ -15,6 +15,8 @@ import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutl
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import { availableColors } from "@/constants";
 import Image from "next/image";
+import { addItem as addWishlistItem } from "@/store/slices/wishlistSlice";
+import { useDispatch } from "react-redux";
 
 const iconButtonStyles = {
   ml: 2,
@@ -22,11 +24,27 @@ const iconButtonStyles = {
   backgroundColor: "white",
 };
 
-const IconButtonWithStyle = ({ children }: { children: React.ReactNode }) => (
-  <IconButton sx={iconButtonStyles}>{children}</IconButton>
+const IconButtonWithStyle = ({
+  children,
+  onClick,
+}: {
+  children: React.ReactNode;
+  onClick?: () => void;
+}) => (
+  <IconButton onClick={onClick} sx={iconButtonStyles}>
+    {children}
+  </IconButton>
 );
 
 const ProductDetails = ({ product }: { product: ProductData }) => {
+  const dispatch = useDispatch();
+  const addToFavorites = (product: ProductData) => {
+    // add product to WishlistItems
+    dispatch(addWishlistItem(product));
+    // show alert
+    alert("Product added to wishlist");
+  };
+
   return (
     <Box pb={10}>
       <Grid container>
@@ -94,7 +112,7 @@ const ProductDetails = ({ product }: { product: ProductData }) => {
             <Button variant="contained" sx={{ color: "white" }}>
               Select Options
             </Button>
-            <IconButtonWithStyle>
+            <IconButtonWithStyle onClick={() => addToFavorites(product)}>
               <FavoriteBorderIcon />
             </IconButtonWithStyle>
             <IconButtonWithStyle>
