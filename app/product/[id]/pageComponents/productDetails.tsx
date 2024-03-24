@@ -19,7 +19,7 @@ import { availableColors } from "@/constants";
 import Image from "next/image";
 import { addItem as addWishlistItem } from "@/store/slices/wishlistSlice";
 import { addItem as addCartItem } from "@/store/slices/cartSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const iconButtonStyles = {
   ml: 2,
@@ -40,24 +40,33 @@ const IconButtonWithStyle = ({
 );
 
 const ProductDetails = ({ product }: { product: ProductData }) => {
-  const [open, setOpen] = React.useState(false);
+  const [showToast, setShowToast] = React.useState(false);
   const [message, setMessage] = React.useState("");
   const dispatch = useDispatch();
+  const cartItems = useSelector((state: any) => state.cart.items);
 
   const addToFavorites = (product: ProductData) => {
     dispatch(addWishlistItem(product));
-    setOpen(true);
+    setShowToast(true);
     setMessage("Item added to wishlist");
   };
 
   const addToCart = (product: ProductData) => {
-    dispatch(addCartItem(product));
-    setOpen(true);
-    setMessage("Item added to cart");
+    const exists = cartItems.find(
+      (item: ProductData) => item.id === product.id
+    );
+    if (exists) {
+      setShowToast(true);
+      setMessage("Product already in cart");
+    } else {
+      dispatch(addCartItem(product));
+      setShowToast(true);
+      setMessage("Item added to cart");
+    }
   };
 
   const handleClose = () => {
-    setOpen(false);
+    setShowToast(false);
   };
 
   return (
@@ -103,7 +112,11 @@ const ProductDetails = ({ product }: { product: ProductData }) => {
               </Typography>
             </Box>
             <Typography variant="h5" color="text" fontWeight="bold" mt={2}>
-              ${product?.price.toLocaleString("en-US")}
+              $
+              {(
+                product?.price -
+                product?.price * (product?.discountPercentage / 100)
+              )?.toLocaleString("en-US")}
             </Typography>
             <Typography mt={1} variant="body2" fontWeight="bold">
               <Box component="span" color="text.secondary">
@@ -149,7 +162,7 @@ const ProductDetails = ({ product }: { product: ProductData }) => {
       </Box>
       <Snackbar
         anchorOrigin={{ vertical: "top", horizontal: "right" }}
-        open={open}
+        open={showToast}
         autoHideDuration={3000}
         onClose={handleClose}
       >
