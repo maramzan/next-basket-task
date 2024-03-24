@@ -3,27 +3,22 @@ import { ProductData } from "@/constants/types";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface WishlistState {
-  items: ProductData[];
+  totalItems: number;
+  itemsId: number[];
 }
 
-const initialState: WishlistState = { items: [] };
+const initialState: WishlistState = { totalItems: 0, itemsId: [] };
 
 const wishlistSlice = createSlice({
   name: "wishlist",
   initialState,
   reducers: {
-    addItem: (state, action: PayloadAction<ProductData>) => {
-      const itemExists = state.items.some(
-        (item) => item.id === action.payload.id
-      );
-      if (!itemExists) {
-        state.items.push(action.payload);
+    addItem: (state, action: PayloadAction<number>) => {
+      if (!state.itemsId.includes(action.payload)) {
+        state.itemsId.push(action.payload);
+        state.totalItems = state.itemsId.length;
       }
     },
-    // removeItem: (state, action: PayloadAction<string>) => {
-    //   state.items = state.items.filter((item) => item.id !== action.payload);
-    // },
-    // Add other actions here...
   },
 });
 

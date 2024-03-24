@@ -17,6 +17,10 @@ export const store = configureStore({
     cart: persistedCartReducer,
     wishlist: persistedWishlistReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
 
 export const persistor = persistStore(store);

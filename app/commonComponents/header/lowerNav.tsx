@@ -27,10 +27,8 @@ function LowerNav() {
     setIsClient(true);
   }, []);
 
-  const state = useSelector((state: any) => state);
-
-  const wishlistItems = state.wishlist.items;
-  const cartItems = state.cart.items;
+  const wishlistItems = useSelector((state: any) => state.wishlist.totalItems);
+  const cartItems = useSelector((state: any) => state.cart.items);
 
   console.log("wishlistItems", wishlistItems);
   console.log("cartItems", cartItems);
@@ -94,7 +92,7 @@ function LowerNav() {
                 }}
               >
                 <AddShoppingCartOutlinedIcon fontSize="small" />
-                {isClient && cartItems.length > 0 && cartItems.length}
+                {isClient && cartItems?.length > 0 && cartItems?.length}
               </IconButton>
               <IconButton
                 aria-label="Menu"
@@ -105,7 +103,7 @@ function LowerNav() {
               </IconButton>
               <IconButton aria-label="Favorite" sx={classes.favoriteIcon}>
                 <FavoriteBorderOutlinedIcon fontSize="small" />
-                {isClient && wishlistItems.length > 0 && wishlistItems.length}
+                {isClient && wishlistItems > 0 && wishlistItems}
               </IconButton>
             </Box>
           </Toolbar>

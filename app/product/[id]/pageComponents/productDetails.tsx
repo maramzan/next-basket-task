@@ -45,7 +45,7 @@ const ProductDetails = ({ product }: { product: ProductData }) => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state: any) => state.cart.items);
 
-  const addToFavorites = (product: ProductData) => {
+  const addToFavorites = (product: number) => {
     dispatch(addWishlistItem(product));
     setShowToast(true);
     setMessage("Item added to wishlist");
@@ -145,13 +145,11 @@ const ProductDetails = ({ product }: { product: ProductData }) => {
               <Button variant="contained" sx={{ color: "white" }}>
                 Select Options
               </Button>
-              <IconButtonWithStyle onClick={() => addToFavorites(product)}>
+              <IconButtonWithStyle onClick={() => addToFavorites(product?.id)}>
                 <FavoriteBorderIcon />
               </IconButtonWithStyle>
-              <IconButtonWithStyle>
-                <AddShoppingCartOutlinedIcon
-                  onClick={() => addToCart(product)}
-                />
+              <IconButtonWithStyle onClick={() => addToCart(product)}>
+                <AddShoppingCartOutlinedIcon />
               </IconButtonWithStyle>
               <IconButtonWithStyle>
                 <VisibilityIcon />
