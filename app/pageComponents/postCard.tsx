@@ -38,11 +38,20 @@ const PostCard = ({ post }: { post: postProps }) => {
         </Box>
       </Box>
       <CardContent>
-        <Box>
-          <Typography variant="caption" color="primary">
-            {` Google  Trending   New`}
-          </Typography>
-        </Box>
+        <Typography variant="caption">
+          {post.tags.map((tag, index) => (
+            <Box
+              key={tag}
+              component="span"
+              sx={{
+                color: index === 0 ? "primary.main" : "text.primary",
+                mr: 2,
+              }}
+            >
+              {tag}
+            </Box>
+          ))}
+        </Typography>
         <Typography gutterBottom variant="h6" component="div">
           {post?.title}
         </Typography>

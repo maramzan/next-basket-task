@@ -7,7 +7,7 @@ const MyGrid = () => {
     <Grid container spacing={1} sx={classes.root}>
       <Grid item xs={12} sm={5}>
         <Box sx={classes.mainItem}>
-          <TextComponent />
+          <TextComponent fontSize={40} />
         </Box>
       </Grid>
 
@@ -36,13 +36,13 @@ const MyGrid = () => {
 
 export default MyGrid;
 
-const TextComponent = () => {
+const TextComponent = ({ fontSize }: { fontSize?: number }) => {
   return (
     <>
       <Typography variant="body2" fontWeight="bold" color={colors.green}>
         5 Items
       </Typography>
-      <Typography variant="h5" fontWeight="bold">
+      <Typography variant="h5" fontSize={`${fontSize}px`} fontWeight="bold">
         Furniture
       </Typography>
       <Typography fontWeight="bold" variant="body2">

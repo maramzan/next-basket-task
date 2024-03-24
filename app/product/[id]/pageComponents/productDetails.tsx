@@ -83,13 +83,15 @@ const ProductDetails = ({ product }: { product: ProductData }) => {
                 <Item key={i} item={image} />
               ))}
             </Carousel>
-            <Box display="flex" mt={2}>
+            <Box display="flex" flexWrap="wrap" mt={2}>
               {product?.images.map((image, index) => (
                 <Box key={index}>
                   <Image
-                    style={{ marginLeft: "10px" }}
+                    style={{
+                      marginLeft: "10px",
+                    }}
                     src={image}
-                    width={100}
+                    width={75}
                     height={75}
                     alt="products images"
                   />

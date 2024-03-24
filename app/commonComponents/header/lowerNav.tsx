@@ -17,6 +17,7 @@ import ExpandMoreOutlinedIcon from "@mui/icons-material/ExpandMoreOutlined";
 import { useSelector } from "react-redux";
 import { pages, responsiveMenu } from "@/constants";
 import SimpleDialog from "../dialog";
+import Link from "next/link";
 
 function LowerNav() {
   const [isClient, setIsClient] = React.useState(false);
@@ -29,9 +30,6 @@ function LowerNav() {
 
   const wishlistItems = useSelector((state: any) => state.wishlist.totalItems);
   const cartItems = useSelector((state: any) => state.cart.items);
-
-  console.log("wishlistItems", wishlistItems);
-  console.log("cartItems", cartItems);
 
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
@@ -54,9 +52,16 @@ function LowerNav() {
       <AppBar position="static" sx={classes.root}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
-            <Typography variant="h6" noWrap component="a" sx={classes.logoText}>
-              Bandage
-            </Typography>
+            <Link href="/" style={{ textDecoration: "none" }}>
+              <Typography
+                variant="h6"
+                noWrap
+                component="a"
+                sx={classes.logoText}
+              >
+                Bandage
+              </Typography>
+            </Link>
             <Box sx={classes.navWrapper}>
               {pages.map((page) => (
                 <Typography
