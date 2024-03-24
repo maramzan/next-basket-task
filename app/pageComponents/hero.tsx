@@ -1,12 +1,18 @@
 import React from "react";
-import { Grid, Box, Paper, Typography } from "@mui/material";
-import { colors } from "@/utils/colors";
+import { Grid, Box, Typography } from "@mui/material";
+import Image from "next/image";
 
 const MyGrid = () => {
   return (
     <Grid container spacing={1} sx={classes.root}>
       <Grid item xs={12} sm={5}>
-        <Box sx={classes.mainItem}>
+        <Box sx={classes.item} position="relative">
+          <Image
+            src="/assets/png/image-1.webp"
+            layout="fill"
+            objectFit="cover"
+            alt="hero image"
+          />
           <TextComponent fontSize={40} />
         </Box>
       </Grid>
@@ -14,17 +20,35 @@ const MyGrid = () => {
       <Grid item xs={12} sm={7}>
         <Grid container spacing={1}>
           <Grid item xs={12}>
-            <Box sx={classes.wideItem}>
+            <Box sx={classes.item2} position="relative">
+              <Image
+                src="/assets/png/image-2.webp"
+                layout="fill"
+                objectFit="cover"
+                alt="hero image"
+              />
               <TextComponent />
             </Box>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <Box sx={classes.smallItem}>
+            <Box sx={classes.item2} position="relative">
+              <Image
+                src="/assets/png/image-3.webp"
+                layout="fill"
+                objectFit="cover"
+                alt="hero image"
+              />
               <TextComponent />
             </Box>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <Box sx={classes.smallItem2}>
+            <Box sx={classes.item2} position="relative">
+              <Image
+                src="/assets/png/image-4.webp"
+                layout="fill"
+                objectFit="cover"
+                alt="hero image"
+              />
               <TextComponent />
             </Box>
           </Grid>
@@ -38,8 +62,8 @@ export default MyGrid;
 
 const TextComponent = ({ fontSize }: { fontSize?: number }) => {
   return (
-    <>
-      <Typography variant="body2" fontWeight="bold" color={colors.green}>
+    <Box style={{ position: "relative" }}>
+      <Typography variant="body2" fontWeight="bold" color="green">
         5 Items
       </Typography>
       <Typography variant="h5" fontSize={`${fontSize}px`} fontWeight="bold">
@@ -48,7 +72,7 @@ const TextComponent = ({ fontSize }: { fontSize?: number }) => {
       <Typography fontWeight="bold" variant="body2">
         Read More
       </Typography>
-    </>
+    </Box>
   );
 };
 
@@ -60,31 +84,15 @@ const classes = {
     width: "100%",
     marginTop: "30px",
   },
-  mainItem: {
+  item: {
     height: { xs: "300px", sm: "100%" },
     padding: "20px",
-    backgroundImage: `url('/assets/png/image-1.webp')`,
     backgroundSize: "cover",
     backgroundPosition: "center",
   },
-  wideItem: {
+  item2: {
     height: "300px",
     padding: "20px",
-    backgroundImage: `url('/assets/png/image-2.webp')`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  },
-  smallItem: {
-    height: "300px",
-    padding: "20px",
-    backgroundImage: `url('/assets/png/image-3.webp')`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  },
-  smallItem2: {
-    height: "300px",
-    padding: "20px",
-    backgroundImage: `url('/assets/png/image-4.webp')`,
     backgroundSize: "cover",
     backgroundPosition: "center",
   },
